@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avyra | Register Your Business or Expertise</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    /* === PARTNER PAGE SPECIFIC STYLES === */
+    .partner-hero {
+      background: linear-gradient(135deg, #0a1628 0%, #0f2544 50%, #162d50 100%);
+      color: white;
+      padding: 8rem 0 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .partner-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 70%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 30%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+      animation: partnerGlow 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes partnerGlow {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(-3%, 2%);
+      }
+    }
+
+    .partner-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .partner-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.2;
+      max-width: 700px;
+      margin: 0 auto 1.25rem;
+      color: #ffffff;
+    }
+
+    .partner-hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* Role Tabs */
+    .role-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .role-tab {
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: var(--color-text-muted);
+      transition: all var(--transition-fast);
+    }
+
+    .role-tab:hover {
+      color: var(--color-text-dark);
+    }
+
+    .role-tab.active {
+      background: #0066FF;
+      border-color: #0066FF;
+      color: white;
+      box-shadow: 0 4px 16px rgba(0, 102, 255, 0.4);
+    }
+
+    /* Benefits Grid */
+    .partner-benefits {
+      padding: 5rem 0;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .benefit-card {
+      background: var(--color-bg-white);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: all var(--transition-smooth);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -8px rgba(0, 102, 255, 0.12);
+      border-color: rgba(0, 102, 255, 0.2);
+    }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #EEF2FF, #DBEAFE);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit-card p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* Registration Form */
+    .partner-register {
+      padding: 5rem 0;
+      background: var(--color-bg-light);
+    }
+
+    .register-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--color-bg-white);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .register-card h2 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .register-card .register-sub {
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: var(--font-heading);
+      color: var(--color-text-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--color-text-dark);
+      background: var(--color-bg-light);
+      transition: all var(--transition-fast);
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+      background: #fff;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      padding: 0.95rem;
+      background: var(--color-accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      margin-top: 0.5rem;
+    }
+
+    .form-submit-btn:hover {
+      background: #0052CC;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 1rem;
+    }
+
+    /* How It Works for Partners */
+    .partner-process {
+      padding: 5rem 0;
+    }
+
+    .process-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+      counter-reset: step;
+    }
+
+    .process-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: var(--color-bg-white);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      counter-increment: step;
+      position: relative;
+    }
+
+    .process-card::before {
+      content: counter(step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: white;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin: 0 auto 1rem;
+    }
+
+    .process-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .process-card p {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* Partner Footer */
+    .partner-footer {
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      border-top: 1px solid var(--color-border);
+    }
+
+    @media (max-width: 768px) {
+      .partner-hero {
+        padding: 6rem 0 3rem;
+      }
+
+      .role-tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .register-card {
+        padding: 1.5rem;
+        margin: 0 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="./index.html" class="logo-link-mobile">
+        <img src="/public/Avyra__1_-removebg-preview.png" alt="Avyra Logo" style="display: block;">
+      </a>
+      <!-- Mobile Menu Button (Hamburger) -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+
+      <div class="nav-links">
+        <a href="./index.html" class="nav-link tag-text">Home</a>
+        <a href="./marketplace.html" class="nav-link tag-text">Dashboard</a>
+        <a href="#register" class="btn btn-primary">Register Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="mobile-dropdown-menu" id="mobileDropdownMenu">
+    <a href="./index.html">Home</a>
+    <a href="./marketplace.html">Dashboard</a>
+    <a href="#register" onclick="closeMobileMenu()">Register Now</a>
+  </div>
+
+  <script>
+    function closeMobileMenu() {
+      const dropdownMenu = document.getElementById('mobileDropdownMenu');
+      const toggleBtn = document.getElementById('mobileMenuBtn');
+      if (dropdownMenu && toggleBtn) {
+        dropdownMenu.classList.remove('show');
+        toggleBtn.classList.remove('active');
+      }
+    }
+  </script>
+
+  <!-- PARTNER HERO -->
+  <section class="partner-hero">
+    <div class="container">
+      <span class="section-tag" style="color: rgba(255,255,255,0.5);">FOR SMBs & EXPERTS</span>
+      <h1>Get Quality Talent for Your Business.</h1>
+      <p>Post real projects, get help from verified students, and pay only for results. Free to register.</p>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="partner-benefits container">
+    <div style="text-align: center;">
+      <span class="section-tag">Why Join Us?</span>
+      <h2>Benefits of Becoming an Avyra Partner</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">💸</div>
+        <h3>Reduce Operational Costs</h3>
+        <p>Get professional work from trained students with a budget much more affordable than agencies.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">✅</div>
+        <h3>Validated Quality</h3>
+        <p>Every deliverable is validated by an industry mentor before being submitted to you. Not raw work.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">⚡</div>
+        <h3>Fast & Easy Process</h3>
+        <p>Just post your project brief, and we'll find the right talent. Completed in days.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🤝</div>
+        <h3>Build a Talent Pipeline</h3>
+        <p>Find potential employees early. Many of our partners eventually recruit the best students permanently.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS FOR PARTNERS -->
+  <section class="partner-process container">
+    <div style="text-align: center;">
+      <span class="section-tag">How It Works</span>
+      <h2>4 Simple Steps to Get Started</h2>
+    </div>
+    <div class="process-cards">
+      <div class="process-card">
+        <h4>Register Account</h4>
+        <p>Fill out the short form below. Our team will verify your business within 24 hours.</p>
+      </div>
+      <div class="process-card">
+        <h4>Post Project Brief</h4>
+        <p>Explain your needs: what needs to be done, deadline, and budget.</p>
+      </div>
+      <div class="process-card">
+        <h4>Receive Applications</h4>
+        <p>Verified students will apply. Choose the candidate that best fits your needs.</p>
+      </div>
+      <div class="process-card">
+        <h4>Receive Deliverables</h4>
+        <p>Mentor-validated deliverables will be sent according to the agreed deadline.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="partner-register" id="register">
+    <div class="container" style="max-width: 700px;">
+      <div class="register-card"
+        style="background: white; border-radius: 20px; padding: 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.08); border: 1px solid var(--color-border);">
+
+        <!-- Role Selection (Exactly Above Form) -->
+        <div class="role-tabs"
+          style="display: flex; gap: 0.5rem; margin-bottom: 2rem; background: #f8fafc; padding: 0.5rem; border-radius: 12px;">
+          <button id="btn-smb" class="role-tab active" onclick="togglePartnerRole('smb')"
+            style="flex: 1; padding: 0.75rem; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; transition: all 0.3s;">🏢
+            SMB Owner</button>
+          <button id="id-expert" class="role-tab" onclick="togglePartnerRole('expert')"
+            style="flex: 1; padding: 0.75rem; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; transition: all 0.3s;">🎓
+            Expert Mentor</button>
+        </div>
+
+        <h2 id="form-title"
+          style="font-size: 1.75rem; margin-bottom: 0.5rem; text-align: center; color: var(--color-primary);">Register
+          as Partner</h2>
+        <p class="register-sub" id="form-sub"
+          style="text-align: center; color: var(--color-text-muted); margin-bottom: 2.5rem; font-size: 0.95rem;">Tell us
+          about your business and get access to talent.</p>
+
+        <form action="#"
+          onsubmit="alert('Application submitted! Our team will review your credentials and contact you within 48 hours.'); return false;">
+          <!-- Full Name Field -->
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label id="lbl-fullname"
+              style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Full
+              Name</label>
+            <input type="text" id="p-fullname" placeholder="e.g. Rania Putri"
+              style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;"
+              required>
+          </div>
+
+          <div class="form-row"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label id="lbl-name"
+                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Company/SMB
+                Name</label>
+              <input type="text" id="p-name" placeholder="e.g. HealthyDrinks Co."
+                style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;"
+                required>
+            </div>
+            <div class="form-group">
+              <label id="lbl-industry"
+                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Industry
+                Type</label>
+              <select id="p-industry"
+                style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem; background: white;"
+                required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="uiux">UI/UX Design</option>
+                <option value="marketing">Digital Marketing</option>
+                <option value="data">Data Science & Analytics</option>
+                <option value="it">Software Engineering</option>
+                <option value="content">Content Strategy</option>
+                <option value="business">Business Development</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label id="lbl-email"
+                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Business
+                Email</label>
+              <input type="email" id="p-email" placeholder="name@company.com"
+                style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;"
+                required>
+            </div>
+            <div class="form-group">
+              <label id="lbl-site"
+                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Company
+                Website</label>
+              <input type="url" id="p-site" placeholder="https://yourwebsite.com"
+                style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;">
+            </div>
+          </div>
+
+          <!-- EXPERT FIELDS -->
+          <div id="expert-fields"
+            style="display: none; border-top: 1px dashed #e2e8f0; padding-top: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-row"
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+              <div class="form-group">
+                <label
+                  style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Years
+                  of Experience</label>
+                <input type="number" id="p-exp" placeholder="e.g. 5"
+                  style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;">
+              </div>
+              <div class="form-group">
+                <label
+                  style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Mentoring
+                  Capacity</label>
+                <select id="p-capacity"
+                  style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem; background: white;">
+                  <option value="1">1 Project at a time</option>
+                  <option value="2-3">2-3 Projects at a time</option>
+                  <option value="4+">4+ Projects (Intensive)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label
+                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Competency
+                Proof (Link to Portfolio/Cert)</label>
+              <input type="url" id="p-proof" placeholder="https://drive.google.com/..."
+                style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;">
+            </div>
+            <div class="form-group">
+              <label
+                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Motivation
+                to Join</label>
+              <textarea id="p-motivation" rows="3" placeholder="Why do you want to mentor students at Avyra?"
+                style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem; font-family: inherit;"></textarea>
+            </div>
+          </div>
+
+          <!-- SMB EXTRA -->
+          <div id="smb-extra" style="margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label
+                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Tell
+                us about your project needs (optional)</label>
+              <textarea id="p-needs" rows="4" placeholder="Example: I need help creating Instagram content..."
+                style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem; font-family: inherit;"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" id="btn-submit" class="btn btn-primary"
+            style="width: 100%; padding: 1.1rem; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; border: none; background: var(--color-primary); color: white;">Register
+            as Partner</button>
+          <p style="text-align: center; margin-top: 1.25rem; font-size: 0.8rem; color: var(--color-text-muted);">
+            By registering, you agree to Avyra's <a href="#"
+              style="color: var(--color-primary); font-weight: 600;">Terms & Conditions</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMPLE FOOTER -->
+  <div class="partner-footer container">
+    <p>© 2025 Avyra. All rights reserved. <a href="./index.html" style="color: var(--color-accent); font-weight: 600;">←
+        Back to Home</a></p>
+  </div>
+
+  <script src="./main.js" type="module"></script>
+  <script>
+    function togglePartnerRole(role) {
+      const btnSmb = document.getElementById('btn-smb');
+      const btnExpert = document.getElementById('id-expert');
+      const formTitle = document.getElementById('form-title');
+      const formSub = document.getElementById('form-sub');
+      const btnSubmit = document.getElementById('btn-submit');
+      const expertFields = document.getElementById('expert-fields');
+      const smbExtra = document.getElementById('smb-extra');
+
+      const lblName = document.getElementById('lbl-name');
+      const inputName = document.getElementById('p-name');
+      const lblIndustry = document.getElementById('lbl-industry');
+      const lblEmail = document.getElementById('lbl-email');
+      const lblSite = document.getElementById('lbl-site');
+      const inputSite = document.getElementById('p-site');
+
+      if (role === 'expert') {
+        btnExpert.style.background = "var(--color-primary)";
+        btnExpert.style.color = "white";
+        btnSmb.style.background = "transparent";
+        btnSmb.style.color = "var(--color-text-dark)";
+
+        formTitle.innerText = "Become an Expert Mentor";
+        formSub.innerText = "Complete the screening process to start validating talent.";
+        btnSubmit.innerText = "Join as Expert Mentor";
+        expertFields.style.display = "block";
+        smbExtra.style.display = "none";
+
+        lblName.innerText = "Current Company & Title";
+        inputName.placeholder = "e.g. Gojek | Sr. UI Designer";
+        lblIndustry.innerText = "Primary Expertise Area";
+        lblEmail.innerText = "Professional Email";
+        lblSite.innerText = "LinkedIn / Portfolio URL";
+        inputSite.placeholder = "https://linkedin.com/in/yourprofile";
+      } else {
+        btnSmb.style.background = "var(--color-primary)";
+        btnSmb.style.color = "white";
+        btnExpert.style.background = "transparent";
+        btnExpert.style.color = "var(--color-text-dark)";
+
+        formTitle.innerText = "Register as Partner";
+        formSub.innerText = "Tell us about your business and get access to talent.";
+        btnSubmit.innerText = "Register as Partner";
+        expertFields.style.display = "none";
+        smbExtra.style.display = "block";
+
+        lblName.innerText = "Company/SMB Name";
+        inputName.placeholder = "e.g. HealthyDrinks Co.";
+        lblIndustry.innerText = "Industry Type";
+        lblEmail.innerText = "Business Email";
+        lblSite.innerText = "Company Website";
+        inputSite.placeholder = "https://yourwebsite.com";
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('mobileMenuBtn');
+      const dropdownMenu = document.getElementById('mobileDropdownMenu');
+
+      if (toggleBtn && dropdownMenu) {
+        toggleBtn.addEventListener('click', () => {
+          dropdownMenu.classList.toggle('show');
+          toggleBtn.classList.toggle('mobile-menu-btn-active');
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

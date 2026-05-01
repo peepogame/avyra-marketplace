@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>Avyra | Build a Verified Portfolio</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- A. NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="./index.html" class="logo-link-mobile">
+        <img src="/public/Avyra__1_-removebg-preview.png" alt="Avyra Logo" style="display: block;">
+      </a>
+      
+      <!-- Mobile Menu Button (Hamburger) -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+
+      <div class="nav-links">
+        <a href="#features" class="nav-link tag-text">Features</a>
+        <a href="#philosophy" class="nav-link tag-text">Methodology</a>
+        <a href="./marketplace.html" class="nav-link tag-text">Dashboard</a>
+        <a href="./partner.html" class="nav-link tag-text" style="color: var(--color-accent); font-weight: 700;">Partner</a>
+        <a href="./marketplace.html" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+    
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-dropdown-menu" id="mobileDropdownMenu">
+      <a href="#features" onclick="closeMobileMenu()">Features</a>
+      <a href="#philosophy" onclick="closeMobileMenu()">Methodology</a>
+      <a href="./marketplace.html">Dashboard</a>
+      <a href="./partner.html" style="color: var(--color-accent); font-weight: 700;">Partner</a>
+      <a href="./marketplace.html" class="btn btn-primary" style="display: block; text-align: center; margin-top: 1rem;">Get Started</a>
+    </div>
+  </nav>
+
+  <script>
+    function closeMobileMenu() {
+      const dropdownMenu = document.getElementById('mobileDropdownMenu');
+      const toggleBtn = document.getElementById('mobileMenuBtn');
+      if (dropdownMenu && toggleBtn) {
+        dropdownMenu.classList.remove('show');
+        toggleBtn.classList.remove('active');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('mobileMenuBtn');
+      const dropdownMenu = document.getElementById('mobileDropdownMenu');
+      
+      if (toggleBtn && dropdownMenu) {
+        toggleBtn.addEventListener('click', () => {
+          dropdownMenu.classList.toggle('show');
+          toggleBtn.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+
+  <!-- B. HERO SECTION -->
+  <section class="hero"
+    style="background-image: linear-gradient(rgba(10, 37, 64, 0.85), rgba(10, 37, 64, 0.95)), url('./public/hero_students_collaboration.png'); background-size: cover; background-position: center; background-repeat: no-repeat; padding-top: 10rem; padding-bottom: 8rem;">
+    <div class="container fade-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <span class="section-tag" style="background: none; border: none; padding: 0; color: white;">Empowering Careers
+        Across Every Field</span>
+      <h1 style="color: white;">Work on real projects. Build your career.</h1>
+      <p style="color: rgba(255,255,255,0.85);">Whether you study marketing, economics, design, engineering, or anything
+        in between — access real startup projects, build a verified portfolio, and earn professional validation to
+        jumpstart your career.</p>
+      <div class="hero-btns">
+        <a href="./marketplace.html" class="btn btn-primary" style="background: #0066FF; border: none;">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER PATHS (Categories as Visual Cards) -->
+  <section class="career-paths container fade-up">
+    <span class="section-tag">Open Project Catalog</span>
+    <h2>Choose a Career Path and Start Your First Project.</h2>
+    
+    <div class="career-grid">
+      <!-- Card 1: Marketing -->
+      <div class="career-card" onclick="window.location.href='./marketplace.html'">
+        <div class="fomo-badge">🔥 Popular This Week</div>
+        <div class="career-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="career-icon-wrapper">📱</div>
+        <h3>Marketing</h3>
+        <p>Social media campaigns, SEO, and audience analysis.</p>
+      </div>
+
+      <!-- Card 2: Design -->
+      <div class="career-card" onclick="window.location.href='./marketplace.html'">
+        <div class="career-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="career-icon-wrapper">🎨</div>
+        <h3>UI/UX Design</h3>
+        <p>Interface design, wireframing, and user research.</p>
+      </div>
+
+      <!-- Card 3: Data Analytics -->
+      <div class="career-card" onclick="window.location.href='./marketplace.html'">
+        <div class="career-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="career-icon-wrapper">📊</div>
+        <h3>Data Analytics</h3>
+        <p>Data visualization, reporting, and statistical modelling.</p>
+      </div>
+
+      <!-- Card 4: Business Strategy -->
+      <div class="career-card" onclick="window.location.href='./marketplace.html'">
+        <div class="career-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+        <div class="career-icon-wrapper">💼</div>
+        <h3>Business Strategy</h3>
+        <p>Business planning, competitor research, and pitching.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS (Transparency) -->
+  <section class="container fade-up" style="padding-top: 1rem; padding-bottom: 4rem;">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto 2rem;">
+      <h3 style="font-size: 1.5rem; color: var(--color-text-dark);">Available Project Previews</h3>
+      <p style="color: var(--color-text-muted);">See the real-world results you can build today.</p>
+    </div>
+
+    <div class="featured-projects-list">
+      <div class="project-card" data-category="marketing">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
+            <div class="tag-text" style="color: var(--color-accent);">MARKETING</div>
+            <span class="project-status status-open"><span class="status-dot"></span>Open Slot (3/5)</span>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Create Instagram Content for 1 Month</h3>
+          <p style="opacity: 0.8; font-size: 0.95rem; line-height: 1.5;">Help a local skincare brand compile a content
+            calendar and create 15 Instagram post designs to increase engagement.</p>
+        </div>
+        <div>
+          <a href="./project-detail.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="economics">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
+            <div class="tag-text" style="color: var(--color-primary);">ECONOMICS</div>
+            <span class="project-status status-urgent"><span class="status-dot"></span>Urgent</span>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Healthy Drinks Market Opportunity Research</h3>
+          <p style="opacity: 0.8; font-size: 0.95rem; line-height: 1.5;">Conduct surveys and competitor analysis for
+            a healthy drink brand looking to expand to 3 new cities in Java.</p>
+        </div>
+        <div>
+          <a href="./project-detail-2.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="design">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
+            <div class="tag-text" style="color: #7C3AED;">DESIGN</div>
+            <span class="project-status status-open"><span class="status-dot"></span>Open Slot (2/5)</span>
+          </div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Online Product Catalog Design</h3>
+          <p style="opacity: 0.8; font-size: 0.95rem; line-height: 1.5;">Create a 10-page digital catalog design for
+            local fashion brands used on WhatsApp Business and Shopee.</p>
+        </div>
+        <div>
+          <a href="./marketplace.html" class="btn btn-outline" style="padding: 0.5rem 1rem;">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2.5rem;">
+      <a href="./catalog.html" class="btn btn-primary">View All Projects</a>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY SECTION -->
+  <section id="philosophy" class="container">
+    <div class="fade-up">
+      <span class="section-tag">Our Philosophy</span>
+      <h2>Gain real experience across every discipline.</h2>
+
+      <div class="philosophy-grid">
+        <div class="phil-card">
+          <span class="phil-label">Legacy Model</span>
+          <div class="phil-statement" style="text-decoration: line-through; opacity: 0.5;">Pay expensive bootcamps for
+            hypothetical case studies.</div>
+        </div>
+        <div class="phil-card">
+          <span class="phil-label">Avyra Model</span>
+          <div class="phil-statement">Collaborate with real startups to solve genuine business challenges.</div>
+        </div>
+        <div class="phil-card">
+          <span class="phil-label">The Differential</span>
+          <div class="phil-statement" style="color: var(--color-accent); font-family: var(--font-heading);">Genuine
+            Impact. Proven Results.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION (Humanize the Brand) -->
+  <section class="container fade-up"
+    style="background: var(--color-bg-white); border-radius: 12px; border: 1px solid var(--color-border); padding: 4rem; margin-top: 2rem; margin-bottom: 2rem;">
+    <div style="text-align: center;">
+      <span class="section-tag">Community</span>
+      <h2>Don't just take our word for it</h2>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"As a marketing student, I never expected to work on a real product launch. Avyra
+          connected me with a startup that needed a go-to-market strategy, and that project alone got me three interview
+          callbacks."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RP</div>
+          <div class="testimonial-info">
+            <strong>Rania P.</strong>
+            <span>Marketing Associate @ BrandVelocity</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"I completed a financial modelling project for a real seed-stage startup through
+          Avyra. Having that on my resume made me stand out from every other econ graduate in my cohort."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: var(--color-accent);">DA</div>
+          <div class="testimonial-info">
+            <strong>Dimas A.</strong>
+            <span>Junior Analyst @ Meridian Capital</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- D. FEATURES -->
+
+  <!-- FEATURE 1 -->
+  <section id="features" class="feature-block container fade-up">
+    <div class="grid-2">
+      <div class="feature-text">
+        <span class="section-tag">Verified Work</span>
+        <h2>Verified Portfolio Assets</h2>
+        <p>No more self-proclaimed skills. Every project — whether it's a marketing plan, financial model, or UX
+          redesign — results in a verified asset proving your capability.</p>
+        <ul style="list-style: none; margin-top: 1.5rem; font-size: 0.95rem; line-height: 1.6;">
+          <li style="margin-bottom: 0.75rem; display: flex; gap: 0.75rem;"><span
+              style="color:var(--color-accent); font-weight:bold;">✓</span> Authenticated project completion records
+          </li>
+          <li style="display: flex; gap: 0.75rem;"><span style="color:var(--color-accent); font-weight:bold;">✓</span>
+            Direct links to accepted deliverables</li>
+        </ul>
+      </div>
+      <div class="shuffler-box">
+        <span class="section-tag" style="color: var(--color-text-muted);">Verification Status</span>
+        <div class="shuffler-value" id="el-shuffler">Validating...</div>
+        <div style="font-size: 0.9rem; font-weight: 500; color: var(--color-text-muted); line-height: 1.5;">
+          STATUS: <span style="color:var(--color-accent); font-weight: 700;">VERIFIED</span><br>
+          FIELD: Marketing Strategy<br>
+          ID: CERT-8F92-A1B4
+        </div>
+
+        <!-- Expert Verifier & Quality Grade -->
+        <div class="verified-expert-preview">
+          <div class="verified-divider"></div>
+          <div class="verified-expert-row">
+            <div class="verified-expert-avatar" style="background: linear-gradient(135deg, #0066FF, #3B82F6);">AF</div>
+            <div class="verified-expert-info">
+              <span class="verified-expert-name">Andi Firmansyah</span>
+              <span class="verified-expert-role">Head of Digital Marketing</span>
+            </div>
+          </div>
+          <div class="verified-grade-row">
+            <span class="verified-grade-label">Quality Grade</span>
+            <span class="verified-grade-badge">★ Excellent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERIFICATION PROCESS FLOW -->
+  <section class="container fade-up" style="padding-bottom: 2rem;">
+    <div style="text-align: center; max-width: 650px; margin: 0 auto 3rem;">
+      <span class="section-tag">How Verification Works</span>
+      <h2>From submission to certificate in 5 clear steps</h2>
+      <p style="color: var(--color-text-muted); line-height: 1.6;">Full transparency — you'll always know exactly where your work is in the pipeline.</p>
+    </div>
+    <div class="process-flow">
+      <div class="process-step">
+        <div class="process-icon">📝</div>
+        <div class="process-num">1</div>
+        <h4>Sign Up & Create Profile</h4>
+        <p>Complete your major profile, skills, and project interests.</p>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="process-icon">💼</div>
+        <div class="process-num">2</div>
+        <h4>Work on Projects</h4>
+        <p>Choose a real project, work according to the brief and deadline.</p>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="process-icon">📤</div>
+        <div class="process-num">3</div>
+        <h4>Send to Mentor</h4>
+        <p>Submit your deliverables to be reviewed by an expert.</p>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="process-icon">🔍</div>
+        <div class="process-num">4</div>
+        <h4>Mentor Verification</h4>
+        <p>Professional review in maximum 2x24 hours.</p>
+      </div>
+      <div class="process-connector"></div>
+      <div class="process-step">
+        <div class="process-icon">🏅</div>
+        <div class="process-num">5</div>
+        <h4>Certificate Issued</h4>
+        <p>Verified badges appear directly on your portfolio.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE 3 -->
+  <section id="protocol" class="feature-block container fade-up">
+    <div class="grid-2">
+      <div class="feature-text">
+        <span class="section-tag">Zero Cost</span>
+        <h2>Accessible Opportunity Pipeline</h2>
+        <p>The standard path limits opportunity by wealth. Avyra opens the project marketplace to students of every
+          background and discipline. You pay zero platform fees to find and build projects.</p>
+        <ul style="list-style: none; margin-top: 1.5rem; font-size: 0.95rem; line-height: 1.6;">
+          <li style="margin-bottom: 0.75rem; display: flex; gap: 0.75rem;"><span
+              style="color:var(--color-accent); font-weight:bold;">✓</span> Uncapped access to project briefs</li>
+          <li style="display: flex; gap: 0.75rem;"><span style="color:var(--color-accent); font-weight:bold;">✓</span>
+            Keep 100% of any direct compensation</li>
+        </ul>
+      </div>
+      <div class="scheduler-box">
+        <div class="schedule-item" data-step="1">
+          <div class="tag-text" style="color: var(--color-primary); margin-bottom: 0.25rem;">STEP 01: SIGN UP</div>
+          <p style="font-size: 0.95rem; color: var(--color-text-muted);">Create your profile.</p>
+        </div>
+        <div class="schedule-item" data-step="2">
+          <div class="tag-text" style="color: var(--color-primary); margin-bottom: 0.25rem;">STEP 02: DELIVER</div>
+          <p style="font-size: 0.95rem; color: var(--color-text-muted);">Select a project and submit your work.</p>
+        </div>
+        <div class="schedule-item" data-step="3">
+          <div class="tag-text" style="color: var(--color-accent); margin-bottom: 0.25rem;">STEP 03: VALIDATE</div>
+          <p style="font-size: 0.95rem; color: var(--color-text-muted);">Optional premium expert review for formal
+            endorsement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTOR / EXPERT SPOTLIGHT -->
+  <section class="container fade-up" style="padding-bottom: 4rem;">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+      <span class="section-tag">Expert Validators</span>
+      <h2>Meet the professionals behind every verification</h2>
+      <p style="color: var(--color-text-muted); line-height: 1.6;">Our mentors are active industry practitioners who review your work with the same standards they use at their companies.</p>
+    </div>
+    <div class="mentor-grid">
+      <div class="mentor-card">
+        <div class="mentor-avatar" style="background: linear-gradient(135deg, #0066FF, #3B82F6);">AF</div>
+        <h4>Andi Firmansyah</h4>
+        <span class="mentor-role">Head of Digital Marketing</span>
+        <span class="mentor-company">@ TokoBesar Indonesia</span>
+        <div class="mentor-tags">
+          <span>Content Strategy</span>
+          <span>Social Media</span>
+        </div>
+      </div>
+      <div class="mentor-card">
+        <div class="mentor-avatar" style="background: linear-gradient(135deg, #7C3AED, #A78BFA);">SN</div>
+        <h4>Sarah Nuraini</h4>
+        <span class="mentor-role">Senior UX Designer</span>
+        <span class="mentor-company">@ GojekDesign</span>
+        <div class="mentor-tags">
+          <span>UI/UX</span>
+          <span>Product Design</span>
+        </div>
+      </div>
+      <div class="mentor-card">
+        <div class="mentor-avatar" style="background: linear-gradient(135deg, #059669, #34D399);">BW</div>
+        <h4>Budi Wicaksono</h4>
+        <span class="mentor-role">VP of Finance</span>
+        <span class="mentor-company">@ Meridian Capital</span>
+        <div class="mentor-tags">
+          <span>Financial Modelling</span>
+          <span>Valuation</span>
+        </div>
+      </div>
+      <div class="mentor-card">
+        <div class="mentor-avatar" style="background: linear-gradient(135deg, #D97706, #FBBF24);">LP</div>
+        <h4>Lina Permata</h4>
+        <span class="mentor-role">Business Strategy Lead</span>
+        <span class="mentor-company">@ McKenzie Consulting</span>
+        <div class="mentor-tags">
+          <span>Market Research</span>
+          <span>Go-to-Market</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="container fade-up" style="padding-bottom: 4rem;" id="faq">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+      <span class="section-tag">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How does the project assignment work if I'm busy with college?</summary>
+        <div class="faq-answer">
+          <p>Each project has a flexible deadline (usually 1-3 weeks). You can choose projects that fit your college schedule, and there is no limit to the number of projects you can take simultaneously — it all depends on your own capacity.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Are these projects paid or unpaid?</summary>
+        <div class="faq-answer">
+          <p>The majority of projects offer direct compensation from business partners. Some projects are voluntary with rewards in the form of certificates and professional endorsements. Compensation status is always clearly stated in each project brief.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What happens if my work is rejected by a mentor?</summary>
+        <div class="faq-answer">
+          <p>The mentor will provide detailed feedback along with points that need improvement. You have the opportunity for up to 2 revisions. The goal is not to bring you down, but to ensure the quality of your output matches industry standards.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How long does the verification process take?</summary>
+        <div class="faq-answer">
+          <p>Once you submit a deliverable, the mentor will review it within a maximum of 2x24 working hours. After passing verification, certificates and badges are automatically issued to your profile.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need to be a student to sign up?</summary>
+        <div class="faq-answer">
+          <p>Avyra is open to active students, fresh graduates (max. 2 years post-graduation), and career switchers. As long as you want to prove your skills through real projects, you qualify.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section fade-up" id="cta">
+    <div class="cta-glow cta-glow-1"></div>
+    <div class="cta-glow cta-glow-2"></div>
+    <div class="cta-content container">
+      <span class="section-tag" style="color: rgba(255,255,255,0.6);">READY TO START?</span>
+      <h2 class="cta-heading">Stop building résumés.<br>Start building <em>proof</em>.</h2>
+      <p class="cta-subtitle">Join thousands of students already working on real startup projects, earning verified credentials, and standing out to employers — completely free.</p>
+      <div class="cta-actions">
+        <a href="./marketplace.html" class="btn btn-cta-primary">
+          <span>Get Started — It's Free</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#methodology" class="btn btn-cta-ghost">See How It Works</a>
+      </div>
+      <div class="cta-stats">
+        <div class="cta-stat">
+          <strong>2,400+</strong>
+          <span>Students Joined</span>
+        </div>
+        <div class="cta-stat-divider"></div>
+        <div class="cta-stat">
+          <strong>180+</strong>
+          <span>Real Projects</span>
+        </div>
+        <div class="cta-stat-divider"></div>
+        <div class="cta-stat">
+          <strong>95%</strong>
+          <span>Satisfaction Rate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 2.5rem; padding-bottom: 3rem; border-bottom: 1px solid var(--color-border);">
+      <div>
+        <div style="height: 40px; overflow: hidden; display: flex; align-items: center; margin-bottom: 1rem;">
+          <img src="/public/Avyra__1_-removebg-preview.png" alt="Avyra Logo" style="width: 180px; display: block;">
+        </div>
+        <p style="margin-top: 1rem; max-width: 280px; line-height: 1.6;">The professional project marketplace for emerging talent.</p>
+        <div class="footer-socials">
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 1 1-2.882 0 1.441 1.441 0 0 1 2.882 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div style="font-family: var(--font-heading); font-size: 0.9rem;">
+        <strong style="display: block; margin-bottom: 1.5rem; opacity: 0.5;">PLATFORM</strong>
+        <ul style="list-style: none;">
+          <li style="margin-bottom: 0.75rem;"><a href="#features">How it Works</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div style="font-family: var(--font-heading); font-size: 0.9rem;">
+        <strong style="display: block; margin-bottom: 1.5rem; opacity: 0.5;">PARTNER</strong>
+        <ul style="list-style: none;">
+          <li style="margin-bottom: 0.75rem;"><a href="./partner.html" style="font-weight: 600; color: var(--color-accent);">Register as Partner</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="./partner.html">UMKM / Startup</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="./partner.html">Expert / Mentor</a></li>
+        </ul>
+      </div>
+      <div style="font-family: var(--font-heading); font-size: 0.9rem;">
+        <strong style="display: block; margin-bottom: 1.5rem; opacity: 0.5;">LEGAL</strong>
+        <ul style="list-style: none;">
+          <li style="margin-bottom: 0.75rem;"><a href="#">Terms of Service</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div style="font-family: var(--font-heading); font-size: 0.9rem;">
+        <strong style="display: block; margin-bottom: 1.5rem; opacity: 0.5;">CONTACT</strong>
+        <ul style="list-style: none;">
+          <li style="margin-bottom: 0.75rem;"><a href="mailto:support@avyra.id">support@avyra.id</a></li>
+          <li style="margin-bottom: 0.75rem;"><a href="mailto:partners@avyra.id">partners@avyra.id</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container" style="padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--color-text-muted);">
+      <span>© 2025 Avyra. All rights reserved.</span>
+      <span>Made with purpose for emerging talent.</span>
+    </div>
+  </footer>
+
+  <script src="./main.js" type="module"></script>
+</body>
+
+</html>
