@@ -2465,14 +2465,3 @@ footer a:hover {
     gap: 1rem;
   }
 }
-
-
-
-/* Mobile-Only Dark Mode Logo Fix */
-@media (max-width: 768px) {
-  @media (prefers-color-scheme: dark) {
-    img[alt*='Avyra Logo'] {
-      filter: brightness(0) invert(1) !important;
-    }
-  }
-}
