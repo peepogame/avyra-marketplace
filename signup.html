@@ -256,7 +256,7 @@
       <!-- STUDENT FORM SECTION -->
       <div id="student-section" class="form-section active">
         <div class="form-section-header" style="margin-top: 0;">
-          <h3>Personal Details</h3>
+          <h3>Student Details</h3>
         </div>
         <div class="form-group">
           <label>Full Name</label>
@@ -287,91 +287,29 @@
             <option value="business">Business Strategy</option>
           </select>
         </div>
+        <div class="form-group" style="margin-top: 1rem;">
+          <label>Set Password</label>
+          <input type="password" id="studentPassword" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-signup" id="submitBtn">Create Student Account</button>
       </div>
 
-      <!-- SMB FORM SECTION -->
-      <div id="smb-section" class="form-section">
-        <div class="form-section-header" style="margin-top: 0;">
-          <h3>Business Information</h3>
-        </div>
-        <div class="form-group">
-          <label>Contact Person Name</label>
-          <input type="text" placeholder="Your full name">
-        </div>
-        <div class="form-group">
-          <label>Business Email</label>
-          <input type="email" placeholder="name@company.com">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Company/SMB Name</label>
-            <input type="text" placeholder="e.g. HealthyDrinks Co.">
-          </div>
-          <div class="form-group">
-            <label>Industry Type</label>
-            <select>
-              <option value="" disabled selected>Select Category</option>
-              <option value="fnb">Food & Beverage</option>
-              <option value="fashion">Fashion & Retail</option>
-              <option value="service">Services</option>
-              <option value="tech">Tech/Startup</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Project Needs</label>
-          <textarea rows="3" placeholder="Describe what tasks you need help with..."></textarea>
-        </div>
+      <!-- SMB REDIRECT SECTION -->
+      <div id="smb-section" class="form-section" style="text-align: center; padding: 1rem 0;">
+        <div style="font-size: 3rem; margin-bottom: 1.5rem;">🏢</div>
+        <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Partner Portal</h3>
+        <p style="color: var(--color-text-muted); margin-bottom: 2rem; line-height: 1.6;">Business registrations are handled through our dedicated Partner Ecosystem portal. Please visit the Partner page to register your SMB.</p>
+        <a href="./partner.html" class="btn-signup" style="display: block; text-decoration: none; background: var(--color-primary);">Go to Partner Registration</a>
       </div>
 
-      <!-- EXPERT FORM SECTION -->
-      <div id="expert-section" class="form-section">
-        <div class="form-section-header" style="margin-top: 0;">
-          <h3>Expert Profile</h3>
-        </div>
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" placeholder="Your full name">
-        </div>
-        <div class="form-group">
-          <label>Professional Email</label>
-          <input type="email" placeholder="name@company.com">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Current Company & Title</label>
-            <input type="text" placeholder="e.g. Gojek | Sr. Designer">
-          </div>
-          <div class="form-group">
-            <label>Expertise Area</label>
-            <select>
-              <option value="uiux">UI/UX Design</option>
-              <option value="marketing">Digital Marketing</option>
-              <option value="data">Data Science</option>
-              <option value="it">Software Engineering</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Years of Experience</label>
-          <input type="number" placeholder="e.g. 5">
-        </div>
-        <div class="form-group">
-          <label>Mentoring Preference</label>
-          <div class="format-options">
-            <label class="format-checkbox"><input type="checkbox" checked> <span>Full Mentorship</span></label>
-            <label class="format-checkbox"><input type="checkbox"> <span>Task Review Only</span></label>
-          </div>
-        </div>
+      <!-- EXPERT REDIRECT SECTION -->
+      <div id="expert-section" class="form-section" style="text-align: center; padding: 1rem 0;">
+        <div style="font-size: 3rem; margin-bottom: 1.5rem;">🎓</div>
+        <h3 style="margin-bottom: 1rem; color: #7e22ce;">Expert Portal</h3>
+        <p style="color: var(--color-text-muted); margin-bottom: 2rem; line-height: 1.6;">Expert mentorship applications require a dedicated screening process. Please apply through our Expert Network portal.</p>
+        <a href="./partner.html#register" class="btn-signup" style="display: block; text-decoration: none; background: #7e22ce;">Apply as Expert Mentor</a>
       </div>
 
-      <div class="form-group" style="margin-top: 1rem;">
-        <label>Set Password</label>
-        <input type="password" placeholder="••••••••" required>
-      </div>
-
-      <button type="submit" class="btn-signup" id="submitBtn">Create Student Account</button>
     </form>
 
     <div class="signup-footer">
@@ -388,7 +326,6 @@
         expert: document.getElementById('expert-section')
       };
       const description = document.getElementById('roleDescription');
-      const submitBtn = document.getElementById('submitBtn');
       const signupForm = document.getElementById('signupForm');
 
       roleButtons.forEach(btn => {
@@ -406,29 +343,26 @@
           // Update text
           if (role === 'student') {
             description.innerText = "Join our ecosystem as a student talent.";
-            submitBtn.innerText = "Create Student Account";
-            submitBtn.style.background = "var(--color-accent)";
           } else if (role === 'smb') {
-            description.innerText = "Scale your business with verified talent.";
-            submitBtn.innerText = "Register as Partner";
-            submitBtn.style.background = "var(--color-primary)";
+            description.innerText = "Redirecting to Partner Portal...";
           } else {
-            description.innerText = "Share your wisdom and validate skills.";
-            submitBtn.innerText = "Join as Expert Mentor";
-            submitBtn.style.background = "#7e22ce";
+            description.innerText = "Redirecting to Expert Network...";
           }
         });
       });
 
       signupForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        const submitBtn = document.getElementById('submitBtn');
+        if (!submitBtn) return;
+
         submitBtn.textContent = "Creating Account...";
         submitBtn.style.opacity = "0.7";
         submitBtn.style.pointerEvents = "none";
 
         setTimeout(() => {
-          alert('Account created successfully! Welcome to Avyra.');
-          window.location.href = './marketplace.html';
+          alert('Account created successfully! Please login with your new credentials.');
+          window.location.href = './login.html';
         }, 1000);
       });
     });
