@@ -42,6 +42,10 @@ body {
   padding-top: 60px;
 }
 
+body.dashboard-layout {
+  padding-top: 0;
+}
+
 @media (min-width: 769px) {
   body.dashboard-layout {
     overflow: hidden;
