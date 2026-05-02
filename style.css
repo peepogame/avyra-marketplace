@@ -122,12 +122,21 @@ a {
 .btn-primary {
   background-color: var(--color-accent);
   color: var(--color-bg-white);
+  padding: 0.85rem 2rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
 }
 
 .btn-primary:hover {
   background-color: #0052cc;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+}
+
+.btn-lg {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
 }
 
 .btn-accent {
