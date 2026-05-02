@@ -1013,60 +1013,78 @@ section {
 }
 
 /* Process Flow */
+/* Process Flow */
 .process-flow {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: center;
-  gap: 0;
-  max-width: 1000px;
-  margin: 0 auto;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1rem;
 }
 
 .process-step {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  padding: 2.5rem 1.5rem 1.5rem;
+  border-radius: 20px;
   text-align: center;
   flex: 1;
-  max-width: 180px;
   position: relative;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.process-step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -12px rgba(0, 102, 255, 0.15);
+  border-color: var(--color-accent);
 }
 
 .process-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  display: block;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
 }
 
 .process-num {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--color-accent);
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-accent), #7C3AED);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.85rem;
-  margin: 0 auto 0.75rem;
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 102, 255, 0.3);
+  border: 3px solid #fff;
 }
 
 .process-step h4 {
-  font-size: 0.95rem;
-  margin-bottom: 0.35rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
   color: var(--color-primary);
+  font-weight: 800;
+  line-height: 1.3;
 }
 
 .process-step p {
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .process-connector {
-  width: 40px;
-  height: 2px;
-  background: var(--color-border);
-  margin-top: 52px;
-  flex-shrink: 0;
+  display: none; /* Removed in favor of card layout */
 }
 
 /* Mentor Grid */
@@ -2071,16 +2089,20 @@ footer a:hover {
 
   /* New sections responsive */
   .process-flow {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .process-connector {
-    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    padding-top: 2rem;
   }
 
   .process-step {
-    max-width: 140px;
+    max-width: 100%;
+    width: 100%;
+    padding: 3rem 2rem 2rem;
+  }
+
+  .process-num {
+    top: -20px;
   }
 
   .mentor-grid {
