@@ -137,6 +137,55 @@
       padding: 1rem 2rem;
     }
 
+    .role-selection-container {
+      background: #f1f5f9;
+      padding: 0.5rem;
+      border-radius: 16px;
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--color-border);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    .role-selection-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: transparent;
+      color: var(--color-text-muted);
+    }
+
+    .role-selection-btn:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.6);
+      color: var(--color-text-dark);
+    }
+
+    .role-selection-btn.active {
+      background: #ffffff;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .role-selection-btn.active#btn-smb {
+      color: #0369a1;
+      border-color: #bae6fd;
+    }
+
+    .role-selection-btn.active#id-expert {
+      color: #7e22ce;
+      border-color: #e9d5ff;
+    }
+
     @media (max-width: 900px) {
       .dual-path-section {
         padding: 3rem 0;
@@ -150,7 +199,7 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
-      
+
       .path-card {
         padding: 1.75rem;
         border-radius: 16px;
@@ -180,6 +229,15 @@
         height: 48px !important;
         font-size: 1.5rem !important;
         margin-bottom: 1rem !important;
+      }
+
+      .role-selection-container {
+        flex-direction: column;
+        padding: 0.4rem;
+      }
+
+      .role-selection-btn {
+        padding: 0.85rem;
       }
     }
 
@@ -655,15 +713,16 @@
       <div class="register-card"
         style="background: white; border-radius: 20px; padding: 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.08); border: 1px solid var(--color-border);">
 
-        <!-- Role Selection (Exactly Above Form) -->
-        <div class="role-tabs"
-          style="display: flex; gap: 0.5rem; margin-bottom: 2rem; background: #f8fafc; padding: 0.5rem; border-radius: 12px;">
-          <button id="btn-smb" class="role-tab active" onclick="togglePartnerRole('smb')"
-            style="flex: 1; padding: 0.75rem; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; transition: all 0.3s;">🏢
-            SMB Owner</button>
-          <button id="id-expert" class="role-tab" onclick="togglePartnerRole('expert')"
-            style="flex: 1; padding: 0.75rem; border-radius: 8px; border: none; font-weight: 700; cursor: pointer; transition: all 0.3s;">🎓
-            Expert Mentor</button>
+        <!-- Role Selection -->
+        <div class="role-selection-container">
+          <button id="btn-smb" class="role-selection-btn active" onclick="togglePartnerRole('smb')">
+            <span style="font-size: 1.25rem;">🏢</span>
+            <span>SMB Owner</span>
+          </button>
+          <button id="id-expert" class="role-selection-btn" onclick="togglePartnerRole('expert')">
+            <span style="font-size: 1.25rem;">🎓</span>
+            <span>Expert Mentor</span>
+          </button>
         </div>
 
         <h2 id="form-title"
@@ -851,14 +910,13 @@
       const inputSite = document.getElementById('p-site');
 
       if (role === 'expert') {
-        btnExpert.style.background = "var(--color-primary)";
-        btnExpert.style.color = "white";
-        btnSmb.style.background = "transparent";
-        btnSmb.style.color = "var(--color-text-dark)";
+        btnExpert.classList.add('active');
+        btnSmb.classList.remove('active');
 
         formTitle.innerText = "Become an Expert Mentor";
         formSub.innerText = "Complete the screening process to start validating talent.";
         btnSubmit.innerText = "Join as Expert Mentor";
+        btnSubmit.style.background = "#7e22ce";
         expertFields.style.display = "block";
         smbExtra.style.display = "none";
 
@@ -869,16 +927,15 @@
         lblSite.innerText = "LinkedIn / Portfolio URL";
         inputSite.placeholder = "https://linkedin.com/in/yourprofile";
       } else {
-        btnSmb.style.background = "var(--color-primary)";
-        btnSmb.style.color = "white";
-        btnExpert.style.background = "transparent";
-        btnExpert.style.color = "var(--color-text-dark)";
+        btnSmb.classList.add('active');
+        btnExpert.classList.remove('active');
 
         formTitle.innerText = "Register as Partner";
         formSub.innerText = "Tell us about your business and get access to talent.";
         btnSubmit.innerText = "Register as Partner";
-        expertFields.style.display = "none";
+        btnSubmit.style.background = "var(--color-primary)";
         smbExtra.style.display = "block";
+        expertFields.style.display = "none";
 
         lblName.innerText = "Company/SMB Name";
         inputName.placeholder = "e.g. HealthyDrinks Co.";
