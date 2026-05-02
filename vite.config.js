@@ -15,7 +15,9 @@ export default defineConfig({
         partner: resolve(__dirname, 'partner.html'),
         portfolio: resolve(__dirname, 'portfolio.html'),
         certifications: resolve(__dirname, 'certifications.html'),
-        catalog: resolve(__dirname, 'catalog.html')
+        catalog: resolve(__dirname, 'catalog.html'),
+        login: resolve(__dirname, 'login.html'),
+        signup: resolve(__dirname, 'signup.html')
       }
     }
   }
