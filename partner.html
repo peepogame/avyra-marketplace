@@ -9,39 +9,34 @@
   <style>
     /* === PARTNER PAGE SPECIFIC STYLES === */
     .partner-hero {
-      background: linear-gradient(135deg, #0a1628 0%, #0f2544 50%, #162d50 100%);
-      color: white;
-      padding: 8rem 0 5rem;
-      text-align: center;
       position: relative;
+      background: url('/public/partner-hero-bg.png') no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 10rem 0 8rem;
+      text-align: center;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
     }
 
-    .partner-hero::before {
+    .partner-hero::after {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 70%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 70% 30%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
-      animation: partnerGlow 8s ease-in-out infinite alternate;
-    }
-
-    @keyframes partnerGlow {
-      0% {
-        transform: translate(0, 0);
-      }
-
-      100% {
-        transform: translate(-3%, 2%);
-      }
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(10, 37, 64, 0.85) 0%, rgba(10, 37, 64, 0.4) 50%, rgba(10, 37, 64, 0.85) 100%);
+      z-index: 1;
     }
 
     .partner-hero .container {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      max-width: 800px;
     }
 
     .partner-hero h1 {
@@ -53,49 +48,15 @@
     }
 
     .partner-hero p {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.7);
-      max-width: 580px;
-      margin: 0 0 2.5rem;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 650px;
+      margin: 0 auto 3rem;
       line-height: 1.6;
     }
 
     .hero-split {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      text-align: left;
-    }
-
-    .hero-image-container {
-      position: relative;
-      z-index: 2;
-      animation: heroFloat 6s ease-in-out infinite;
-    }
-
-    @keyframes heroFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-
-    .hero-img {
-      width: 100%;
-      border-radius: 24px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 20px rgba(0, 102, 255, 0.2);
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: transform 0.5s ease;
-    }
-
-    .hero-img-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 130%;
-      height: 130%;
-      background: radial-gradient(circle, rgba(0, 102, 255, 0.25) 0%, transparent 70%);
-      z-index: -1;
+      display: block;
     }
 
     /* Role Tabs */
@@ -477,18 +438,14 @@
 
   <!-- PARTNER HERO -->
   <section class="partner-hero">
-    <div class="container hero-split">
+    <div class="container">
       <div class="hero-content">
-        <span class="section-tag" style="color: rgba(255,255,255,0.5);">FOR SMBs & EXPERTS</span>
-        <h1>Get Quality Talent for Your Business.</h1>
-        <p>Post real projects, get help from verified students, and pay only for results. Free to register.</p>
-        <div class="hero-actions">
-          <a href="#register" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.05rem;">Start Hiring Now</a>
+        <span class="section-tag" style="color: rgba(255,255,255,0.7); font-weight: 800;">FOR SMBs & EXPERTS</span>
+        <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem;">Get Quality Talent for Your Business.</h1>
+        <p>Post real projects, get help from verified students, and pay only for results. Join the future of flexible talent.</p>
+        <div class="hero-actions" style="margin-top: 2rem;">
+          <a href="#register" class="btn btn-primary" style="padding: 1.25rem 2.5rem; font-size: 1.1rem; border-radius: 50px; box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4);">Register Now — It's Free</a>
         </div>
-      </div>
-      <div class="hero-image-container">
-        <img src="/public/partner-hero.png" alt="Expert Collaboration" class="hero-img">
-        <div class="hero-img-glow"></div>
       </div>
     </div>
   </section>
