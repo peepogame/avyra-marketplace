@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
 
 :root {
-  color-scheme: only light;
+  color-scheme: light dark;
   --color-primary: #0A2540;
   /* Deep Navy */
   --color-accent: #0066FF;
@@ -2467,3 +2467,11 @@ footer a:hover {
 }
 
 
+
+
+/* Dark Mode Logo Fix (Inverts black text to white) */
+@media (prefers-color-scheme: dark) {
+  img[alt*='Avyra Logo'] {
+    filter: invert(1) brightness(1.2) !important;
+  }
+}
