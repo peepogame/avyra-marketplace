@@ -48,11 +48,99 @@
     }
 
     .partner-hero p {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.85);
-      max-width: 650px;
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 750px;
       margin: 0 auto 3rem;
       line-height: 1.6;
+    }
+
+    /* Dual Path Cards */
+    .dual-path-section {
+      padding: 6rem 0;
+      background: #fff;
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .path-card {
+      padding: 3rem;
+      border-radius: 24px;
+      border: 1px solid var(--color-border);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .path-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px -15px rgba(10, 37, 64, 0.15);
+      border-color: var(--color-accent);
+    }
+
+    .path-card.smb {
+      background: linear-gradient(to bottom right, #ffffff, #f0f7ff);
+    }
+
+    .path-card.expert {
+      background: linear-gradient(to bottom right, #ffffff, #f5f3ff);
+    }
+
+    .path-card h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .path-card p {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .path-features {
+      list-style: none;
+      margin-bottom: 2.5rem;
+      flex-grow: 1;
+    }
+
+    .path-features li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--color-text-dark);
+      font-weight: 500;
+    }
+
+    .path-features li::before {
+      content: '✓';
+      color: var(--color-accent);
+      font-weight: 800;
+    }
+
+    .path-card .btn {
+      align-self: flex-start;
+      border-radius: 50px;
+      padding: 1rem 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .path-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .hero-split {
@@ -450,58 +538,87 @@
     </div>
   </section>
 
-  <!-- BENEFITS -->
-  <section class="partner-benefits container">
-    <div style="text-align: center;">
-      <span class="section-tag">Why Join Us?</span>
-      <h2>Benefits of Becoming an Avyra Partner</h2>
-    </div>
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="benefit-icon">💸</div>
-        <h3>Reduce Operational Costs</h3>
-        <p>Get professional work from trained students with a budget much more affordable than agencies.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">✅</div>
-        <h3>Validated Quality</h3>
-        <p>Every deliverable is validated by an industry mentor before being submitted to you. Not raw work.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">⚡</div>
-        <h3>Fast & Easy Process</h3>
-        <p>Just post your project brief, and we'll find the right talent. Completed in days.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">🤝</div>
-        <h3>Build a Talent Pipeline</h3>
-        <p>Find potential employees early. Many of our partners eventually recruit the best students permanently.</p>
+  <!-- PARTNER HERO -->
+  <section class="partner-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="section-tag" style="color: rgba(255,255,255,0.8); font-weight: 800;">AVYA PARTNERSHIP</span>
+        <h1 style="font-size: clamp(2.5rem, 6vw, 4.25rem); margin-bottom: 1.5rem; letter-spacing: -0.03em;">Empower Growth. Share Expertise.</h1>
+        <p>Whether you're looking to scale your business with fresh talent or mentor the next generation of industry leaders, Avyra is your gateway to excellence.</p>
+        <div class="hero-actions" style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+          <a href="#register" class="btn btn-primary" style="padding: 1.25rem 2.5rem; font-size: 1.1rem; border-radius: 50px; box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4);">Partner with Us</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS FOR PARTNERS -->
-  <section class="partner-process container">
-    <div style="text-align: center;">
-      <span class="section-tag">How It Works</span>
-      <h2>4 Simple Steps to Get Started</h2>
+  <!-- DUAL PATH SECTION -->
+  <section class="dual-path-section container">
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 4rem;">
+      <span class="section-tag">Choose Your Path</span>
+      <h2 style="font-size: 2.5rem;">How would you like to contribute?</h2>
     </div>
-    <div class="process-cards">
-      <div class="process-card">
-        <h4>Register Account</h4>
-        <p>Fill out the short form below. Our team will verify your business within 24 hours.</p>
+
+    <div class="path-grid">
+      <!-- SMB CARD -->
+      <div class="path-card smb">
+        <div class="benefit-icon" style="background: #e0f2fe; color: #0369a1; width: 60px; height: 60px; font-size: 2rem;">🏢</div>
+        <h3>For Businesses (SMBs)</h3>
+        <p>Scale your operations and get critical tasks completed by talented, mentor-verified students at a fraction of agency costs.</p>
+        <ul class="path-features">
+          <li>Access to Top-Tier Student Talent</li>
+          <li>Mentor-Validated Deliverables</li>
+          <li>Affordable Project-Based Pricing</li>
+          <li>Build your Future Talent Pipeline</li>
+        </ul>
+        <a href="#register" class="btn btn-primary" onclick="togglePartnerRole('smb')">Hire Talent</a>
       </div>
-      <div class="process-card">
-        <h4>Post Project Brief</h4>
-        <p>Explain your needs: what needs to be done, deadline, and budget.</p>
+
+      <!-- EXPERT CARD -->
+      <div class="path-card expert">
+        <div class="benefit-icon" style="background: #f3e8ff; color: #7e22ce; width: 60px; height: 60px; font-size: 2rem;">🎓</div>
+        <h3>For Expert Mentors</h3>
+        <p>Shape the future of your industry. Share your professional wisdom, validate student work, and earn rewards for your time.</p>
+        <ul class="path-features">
+          <li>Monetize Your Professional Insight</li>
+          <li>Build your Legacy as a Mentor</li>
+          <li>Flexible, Remote-First Engagement</li>
+          <li>Network with Other Industry Leaders</li>
+        </ul>
+        <a href="#register" class="btn btn-primary" style="background: #7e22ce;" onclick="togglePartnerRole('expert')">Join as Mentor</a>
       </div>
-      <div class="process-card">
-        <h4>Receive Applications</h4>
-        <p>Verified students will apply. Choose the candidate that best fits your needs.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (BALANCED) -->
+  <section class="partner-process" style="background: var(--color-bg-light);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <span class="section-tag">The Workflow</span>
+        <h2>A Seamless Partnership Model</h2>
       </div>
-      <div class="process-card">
-        <h4>Receive Deliverables</h4>
-        <p>Mentor-validated deliverables will be sent according to the agreed deadline.</p>
+      
+      <div class="process-cards">
+        <div class="process-card">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📝</div>
+          <h4>1. Register & Verify</h4>
+          <p>Complete your profile. We verify every business and expert to maintain our high ecosystem standards.</p>
+        </div>
+        <div class="process-card">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🚀</div>
+          <h4>2. Post or Browse</h4>
+          <p>SMBs post project briefs; Experts browse projects to mentor and guide based on their expertise.</p>
+        </div>
+        <div class="process-card">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤝</div>
+          <h4>3. Collaborate</h4>
+          <p>Students work on projects under the expert's supervision, ensuring high-quality output every time.</p>
+        </div>
+        <div class="process-card">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">💎</div>
+          <h4>4. Achieve Results</h4>
+          <p>SMBs receive validated work; Experts receive rewards; Students build their verified portfolio.</p>
+        </div>
       </div>
     </div>
   </section>
