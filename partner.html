@@ -245,6 +245,60 @@
       margin-top: 1rem;
     }
 
+    /* Form Section Improvements */
+    .form-section-header {
+      border-bottom: 2px solid var(--color-bg-light);
+      padding-bottom: 0.5rem;
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    .form-section-header h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-primary);
+      margin: 0;
+      font-weight: 800;
+    }
+
+    .char-count {
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .format-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .format-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: var(--color-bg-light);
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      transition: all 0.2s;
+      border: 1px solid var(--color-border);
+    }
+
+    .format-checkbox:hover {
+      background: #f8fafc;
+      border-color: var(--color-accent);
+    }
+
+    .format-checkbox input {
+      width: 18px !important;
+      height: 18px !important;
+      margin: 0;
+    }
+
     /* How It Works for Partners */
     .partner-process {
       padding: 5rem 0;
@@ -458,7 +512,12 @@
 
         <form action="#"
           onsubmit="alert('Application submitted! Our team will review your credentials and contact you within 48 hours.'); return false;">
-          <!-- Full Name Field -->
+          
+          <!-- SECTION: PERSONAL INFORMATION -->
+          <div class="form-section-header" style="margin-top: 0;">
+            <h3>Personal Information</h3>
+          </div>
+
           <div class="form-group" style="margin-bottom: 1.5rem;">
             <label id="lbl-fullname"
               style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Full
@@ -466,6 +525,20 @@
             <input type="text" id="p-fullname" placeholder="e.g. Rania Putri"
               style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;"
               required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label id="lbl-email"
+              style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Business
+              Email</label>
+            <input type="email" id="p-email" placeholder="name@company.com"
+              style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;"
+              required>
+          </div>
+
+          <!-- SECTION: PROFESSIONAL BACKGROUND -->
+          <div class="form-section-header">
+            <h3>Professional Background</h3>
           </div>
 
           <div class="form-row"
@@ -496,28 +569,16 @@
             </div>
           </div>
 
-          <div class="form-row"
-            style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
-            <div class="form-group">
-              <label id="lbl-email"
-                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Business
-                Email</label>
-              <input type="email" id="p-email" placeholder="name@company.com"
-                style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;"
-                required>
-            </div>
-            <div class="form-group">
-              <label id="lbl-site"
-                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Company
-                Website</label>
-              <input type="url" id="p-site" placeholder="https://yourwebsite.com"
-                style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;">
-            </div>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label id="lbl-site"
+              style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Company
+              Website</label>
+            <input type="url" id="p-site" placeholder="https://yourwebsite.com"
+              style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;">
           </div>
 
-          <!-- EXPERT FIELDS -->
-          <div id="expert-fields"
-            style="display: none; border-top: 1px dashed #e2e8f0; padding-top: 1.5rem; margin-bottom: 1.5rem;">
+          <!-- EXPERT SPECIFIC FIELDS -->
+          <div id="expert-fields" style="display: none;">
             <div class="form-row"
               style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
               <div class="form-group">
@@ -529,38 +590,62 @@
               </div>
               <div class="form-group">
                 <label
-                  style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Mentoring
-                  Capacity</label>
-                <select id="p-capacity"
+                  style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Weekly
+                  Commitment</label>
+                <select id="p-commitment"
                   style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem; background: white;">
-                  <option value="1">1 Project at a time</option>
-                  <option value="2-3">2-3 Projects at a time</option>
-                  <option value="4+">4+ Projects (Intensive)</option>
+                  <option value="2-5">2-5 hours / week</option>
+                  <option value="5-10">5-10 hours / week</option>
+                  <option value="10+">10+ hours / week</option>
                 </select>
               </div>
             </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label
+                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Mentoring
+                Format</label>
+              <div class="format-options">
+                <label class="format-checkbox">
+                  <input type="checkbox" name="format" value="full">
+                  <span>Full Mentorship (End-to-End)</span>
+                </label>
+                <label class="format-checkbox">
+                  <input type="checkbox" name="format" value="review">
+                  <span>Task Review Only</span>
+                </label>
+                <label class="format-checkbox">
+                  <input type="checkbox" name="format" value="qa">
+                  <span>Live Q&A Session</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label
+                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Short
+                Bio (Max 200 characters)</label>
+              <textarea id="p-bio" rows="2" maxlength="200" placeholder="Briefly describe your expertise..."
+                style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem; font-family: inherit;"
+                oninput="document.getElementById('bio-count').innerText = this.value.length"></textarea>
+              <div class="char-count"><span id="bio-count">0</span> / 200</div>
+            </div>
+
             <div class="form-group" style="margin-bottom: 1.5rem;">
               <label
                 style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Competency
-                Proof (Link to Portfolio/Cert)</label>
-              <input type="url" id="p-proof" placeholder="https://drive.google.com/..."
+                Proof (Portfolio/LinkedIn)</label>
+              <input type="url" id="p-proof" placeholder="https://linkedin.com/in/..."
                 style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem;">
-            </div>
-            <div class="form-group">
-              <label
-                style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Motivation
-                to Join</label>
-              <textarea id="p-motivation" rows="3" placeholder="Why do you want to mentor students at Avyra?"
-                style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem; font-family: inherit;"></textarea>
             </div>
           </div>
 
-          <!-- SMB EXTRA -->
+          <!-- SECTION: ADDITIONAL INFO (SMB ONLY) -->
           <div id="smb-extra" style="margin-bottom: 1.5rem;">
             <div class="form-group">
               <label
                 style="display: block; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--color-text-dark);">Tell
-                us about your project needs (optional)</label>
+                us about your project needs</label>
               <textarea id="p-needs" rows="4" placeholder="Example: I need help creating Instagram content..."
                 style="width: 100%; padding: 0.85rem; border: 1px solid var(--color-border); border-radius: 10px; font-size: 0.9rem; font-family: inherit;"></textarea>
             </div>
